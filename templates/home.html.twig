@@ -1,0 +1,155 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}homePage{% endblock %}
+
+{% block body %}
+
+    <div class="container">
+        <div class="jumbotron mt-3 border-dark" style="background-image:url('http://www.museedutextile81.com/Zc4DSYMxs/healthy-food-2.jpg');">
+            <h1 class="display-3" style="color: black;text-shadow: 3px 3px 3px white;">Bienvenue sur NesRecettes</h1>
+            <p class="lead" style="color: black;text-shadow: 3px 3px 3px white;">
+                <strong>Une cuisine simple, conviviale et gourmande</strong>
+            </p>
+            <hr class="my-4">
+            <p class="lead" style="color: black;text-shadow: 3px 3px 3px white;">
+                <strong><em>Cuisinier(e)s ou Patissier(e)s ? Et vous voulez apprendre des nouvelles recettes où partager vos recettes ?
+                Vous êtes les bienvenues.
+                </em>
+                </strong>
+            </p>
+            <p class="lead" style="color: black;">
+                <a class="btn btn-info btn-lg" style="color: white;" href="{{ path('recipe_index') }}" role="button">Voir les recettes</a>
+            </p>
+        </div>
+
+        <h2 class="my-5">Nos recettes stars</h2>
+
+        <div class="row">
+            <div class="col-4">
+                <div class="card border-dark mb-3">
+                    <h4 class="card-header bg-dark text-center">
+                        <a href="#" style="color: white;">
+                            Titre de la recette
+                        </a>
+                    </h4>
+                    <div class="card-body text-center">
+                        Note :  <span class="rating">
+                                    {% for i in 1..5 %}
+                                            <i class="fas fa-star"></i>
+                                    {% endfor %}
+                                </span>
+
+                        Difficulté : <span><i class="fas fa-signal"></i></span>
+                    </div>
+                    <img style="height: 200px; width: 100%; display: block;" src="https://www.mimicuisine.fr/wp-content/uploads/2020/04/coulant-chocolat-noisette-et-noix-de-pecan-2-440x294.png" alt="Image de la recette">
+                    <div class="card-body">
+                        <p class="card-text">Voici une délicieuse recette de dessert express. Simple et avec peu d’ingrédients pour un plaisir en fin de repas. Les amateurs de chocolat vont adorer ce fondant.
+                            </p>
+                    </div>
+                    <div class="card-body">
+                        <a href="#" class="btn btn-outline-info float-right">En savoir plus !</a>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="col-4">
+                <div class="card border-dark mb-3">
+                    <h4 class="card-header bg-dark text-center">
+                        <a href="#" style="color: white;">
+                            Titre de la recette
+                        </a>
+                    </h4>
+                    <div class="card-body text-center">
+                        Note :  <span class="rating">
+                                    {% for i in 1..3 %}
+                                        <i class="fas fa-star"></i>
+                                    {% endfor %}
+                                    {% for i in 1..2 %}
+                                        <i class="far fa-star"></i>
+                                    {% endfor %}
+                                </span>
+
+                        Difficulté : <span><i class="fas fa-signal"></i></span>
+                    </div>
+                    <img style="height: 200px; width: 100%; display: block;" src="https://www.mimicuisine.fr/wp-content/uploads/2020/02/muffins-noix-de-coco-chocolait-au-lait.png" alt="Image de la recette">
+                    <div class="card-body">
+                        <p class="card-text">Dessert fait maison au caramel et à la noix de coco, les parfums préférés de mon baby.
+                            Une tournée de 45 min pour 6 pots de crème dessert avec seulement 5 ingrédients. </p>
+                    </div>
+                    <div class="card-body">
+                        <a href="#" class="btn btn-outline-info float-right">En savoir plus !</a>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="col-4">
+                <div class="card border-dark mb-3">
+                    <h4 class="card-header bg-dark text-center">
+                        <a href="#" style="color: white;">
+                            Titre de la recette
+                        </a>
+                    </h4>
+                    <div class="card-body text-center">
+                        Note :  <span class="rating">
+                                    {% for i in 1..2 %}
+                                        <i class="fas fa-star"></i>
+                                    {% endfor %}
+                                    {% for i in 1..3 %}
+                                        <i class="far fa-star"></i>
+                                    {% endfor %}
+
+
+                                </span>
+
+                        Difficulté : <span><i class="fas fa-signal"></i></span>
+                    </div>
+                    <img style="height: 200px; width: 100%; display: block;" src="https://www.mimicuisine.fr/wp-content/uploads/2015/10/12086953_1481507102153665_1268277514_n.jpg" alt="Image de la recette">
+                    <div class="card-body">
+                        <p class="card-text">
+                            autrement. J’ai passé 2 jours intenses sur le Mont Saint Michel
+                            et j’ai eu la chance de cuisiner dans la cuisine de La Mère Poulard.
+                            Je suis repartie les bras chargés de biscuits.
+                        </p>
+                    </div>
+                    <div class="card-body">
+                        <a href="#" class="btn btn-outline-info float-right">En savoir plus !</a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <h2 class="h1 my-5">Nos participants stars !</h2>
+
+        <div class="row">
+            <div class="col">
+                <div class="card border-dark">
+                    <div class="card-body">
+                        <h5 class="card-title">Marwa Rayni</h5>
+                        <hr>
+
+                        <img src="https://randomuser.me/api/portraits/lego/5.jpg" alt="Avatar de Marwa" class=" avatar float-left mr-3">
+                        <p class="card-text">Coucou , je m'appelle Marwa et je suis passionnée de cuisine
+                            et je souhaite apprendre des nouvelles recettes ;)</p>
+                        <a href="#" class="btn btn-outline-secondary float-right">Plus d'informations</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card border-dark">
+                    <div class="card-body">
+                        <h5 class="card-title">Adem Rayni</h5>
+                        <hr>
+
+                        <img src="https://randomuser.me/api/portraits/lego/8.jpg" alt="Avatar de Adem" class=" avatar float-left mr-3">
+                        <p class="card-text">Salut tout le monde, c'est Adem, prêt pour partager mes recettes avec vous.</p>
+                        <a href="#" class="btn btn-outline-secondary float-right">Plus d'informations</a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+{% endblock %}

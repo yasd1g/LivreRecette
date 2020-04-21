@@ -1,0 +1,38 @@
+{% set url = path('recipe_show', {'slug': recipe.slug }) %}
+
+<div class="col-md-4">
+    <div class="card border-dark mb-3">
+        <div class="card-header bg-light text-center">
+            <strong>Niveau de difficulté : </strong>{{ recipe.difficulty }} <br>
+
+            {% if recipe.comments|length > 0 %}
+                {% include 'partials/rating.html.twig' with {'rating': recipe.avgRatings } %}
+            {% else %}
+                <small>Pas encore noté</small>
+            {% endif %}
+        </div>
+        <a href="{{ url }}">
+            <img src="{{ recipe.coverImage }}" alt="Image de la recette" style="height: 200px; width: 100%; display: block;">
+        </a>
+        <div class="card-body">
+            <h4 class="card-title">
+                <a href="{{ url }}">
+                    {{ recipe.title }}
+                </a>
+            </h4>
+            <p class="card-title">{{ recipe.introduction }}
+            </p>
+
+            <a href="{{ url }}" class="btn btn-outline-info float-right" style="font-size: smaller;">
+                <i class="fas fa-search-plus"></i>
+                En savoir plus
+            </a>
+            {% if app.user and app.user == recipe.author %}
+                <a href="{{ path('recipe_edit' , {'slug': recipe.getSlug() }) }}" class="btn btn-outline-secondary" style="font-size: smaller;">
+                    <i class="fas fa-pen"></i>
+                    Modifier la recette
+                </a>
+            {% endif %}
+        </div>
+    </div>
+</div>

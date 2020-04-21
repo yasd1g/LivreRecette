@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} Vos recettes {% endblock %}
+
+{% block body %}
+
+    <div class="container">
+        <h1 class="my-5">Mes recettes</h1>
+        <div class="alert alert-info mt-5">
+            <p>Retrouvez toutes vos recettes postées et à venir</p>
+        </div>
+        {% for recipe in app.user.recipes %}
+
+            {#{% set ad = booking.ad %}#}
+            <div class="row mt-3">
+                <div class="col-md-4">
+                    <img src="{{ recipe.coverImage }}" alt=" Photo de la recette {{ recipe.title }}" class="img-fluid">
+                </div>
+                <div class="col-md-8">
+                    <h4>{{ recipe.title }}</h4>
+                    <p><strong>Niveau de difficulté:</strong> {{ recipe.difficulty }}
+                        <br>
+                        <strong>Note globale donnée par les visiteurs:</strong>
+
+                        {% if recipe.comments | length > 0 %}
+                            {% include 'partials/rating.html.twig' with {'rating':recipe.getAvgRatings()} %} sur {{ recipe.comments | length }} avis.
+                        {% else %}
+                            Pas encore noté !
+                        {% endif %}
+
+                    </p>
+                    <a href="{{ path('recipe_show',{'slug': recipe.getSlug()}) }}" class="btn btn-info"> Plus d'informations </a>
+                </div>
+            </div>
+
+        {% endfor %}
+    </div>
+{% endblock %}
