@@ -1,0 +1,66 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-info">
+    <a class="navbar-brand" style="font-family: 'Snell Roundhand'; " href="#">NesRecettes</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarColor02">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item ">
+                <a class="nav-link" href="#">
+                    <i class="fas fa-chart-line"></i>
+                    Dashbord
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ path('admin_recipes_index') }}">
+                    <i class="fas fa-receipt"></i>
+                    Recettes
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ path('admin_users_index') }}">
+                    <i class="fas fa-users"></i>
+                    Utilisateurs
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ path('admin_comments_index') }}">
+                    <i class="fas fa-comments"></i>
+                    Commentaires
+                </a>
+            </li>
+        </ul>
+
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="{{ path('homepage') }}" target="_blank"> {# target _blank cest pour ouvrir le lien sur une nouvelle page #}
+                    <i class="fas fa-eye"></i>
+                    Voir le site
+                </a>
+            </li>
+                {% if app.user %}
+                    <li class="nav-item dropdown">
+                        <a href="#"  style="color: white;" class="nav-link dropdown-toggle" data-toggle ="dropdown" id="accountDropdownLink">
+                            <img src="https://i.pinimg.com/originals/d9/84/a7/d984a7ba2af708f356359c5fa5a60bcb.jpg" class="avatar avatar-mini" alt="Avatar de ">
+                            {{ app.user.fullName }}
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="accountDropdownLink">
+                            <a href="{{ path('account_logout') }}" class="dropdown-item">Déconnexion</a>
+                        </div>
+                    </li>
+                {% endif %}
+        </ul>
+    </div>
+</nav>
+
+
+{% for label, messages in app.flashes  %}
+    <div class="container">
+        <div class="alert-{{ label }}">
+            {% for message in messages %}
+                <p>{{ message | raw }}</p>
+            {% endfor %}
+        </div>
+    </div>
+{% endfor %}

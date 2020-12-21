@@ -21,19 +21,19 @@ security:
 
             #    mes ajouts start
 
-#        admin:
-#            pattern: ^/admin
-#            anonymous: true
-#
-#            provider: in_database
-#
-#            form_login:
-#                login_path: admin_account_login
-#                check_path: admin_account_login
-#
-#            logout:
-#                path: admin_account_logout
-#                target: homepage
+        admin:
+            pattern: ^/admin
+            anonymous: true
+
+            provider: in_database
+
+            form_login:
+                login_path: admin_account_login
+                check_path: admin_account_login
+
+            logout:
+                path: admin_account_logout
+                target: homepage
         main:
             anonymous: lazy
             provider: in_database

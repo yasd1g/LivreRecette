@@ -10,8 +10,8 @@
                 <br>
                 <span class="badge badge-secondary">{{ user.recipes | length }} recettes</span>
             </div>
-            <div class="card card-body border-info">
-                <div class="col-9">
+            <div class=" col-6 card card-body border-info">
+                <div>
                     <h1 class="my-5">{{ user.fullName }}</h1>
 
                     {% if user == app.user %}
@@ -19,7 +19,7 @@
                             <a href="{{ path('account_profile') }}" class="btn btn-info mr-2 mb-2">
                                 Modifier mes informations
                             </a>
-                            <a href="#" class="btn btn-info mr-2 mb-2">
+                            <a href="{{ path('account_password') }}" class="btn btn-primary mr-2 mb-2">
                                 Modifier mon mot de passe
                             </a>
                         </div>

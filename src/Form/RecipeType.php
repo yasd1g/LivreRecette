@@ -49,10 +49,10 @@ class RecipeType extends ApplicationType
             )
             ->add('difficulty',
                 IntegerType::class,
-                $this->getConfiguration("difficulté sur 4","Veuillez indiquer la difficulté de 0 à 4",
+                $this->getConfiguration("difficulté sur 4","Veuillez indiquer la difficulté de 1 à 4",
                     [
                         'attr' => [
-                            'min' => 0,
+                            'min' => 1,
                             'max' => 4,
                             'step' => 1
                         ]

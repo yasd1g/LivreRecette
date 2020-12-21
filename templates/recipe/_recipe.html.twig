@@ -1,9 +1,15 @@
-{% set url = path('recipe_show', {'slug': recipe.slug }) %}
-
+{% set url = path('recipe_show', {'slug': recipe.getSlug() }) %}
 <div class="col-md-4">
     <div class="card border-dark mb-3">
         <div class="card-header bg-light text-center">
             <strong>Niveau de difficulté : </strong>{{ recipe.difficulty }} <br>
+            <strong>Catégorie : </strong>
+            {% if recipe.category == 2 %}
+                Sucré
+            {% elseif  recipe.category == 1 %}
+                Salé
+            {% endif %}
+            <br>
 
             {% if recipe.comments|length > 0 %}
                 {% include 'partials/rating.html.twig' with {'rating': recipe.avgRatings } %}
